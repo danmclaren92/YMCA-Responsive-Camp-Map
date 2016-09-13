@@ -11,6 +11,13 @@ var w = 1170,
     h = 904,
     url = 'Camp-Map.jpg';
 
+L.tileLayer('http://www.colorhexa.com/dddddd.png', {
+    attribution: '&copy; <a href="http://www.ymca.ca/">YMCA Canada</a>',
+    maxZoom: 6
+ }).addTo(map);
+ map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text.
+
+
 //calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMinZoom()+1);
 var northEast = map.unproject([w, 0], map.getMinZoom()+1);
@@ -33,7 +40,7 @@ $(window).on('orientationchange pageshow resize', function () {
 
 //Add marker to Dining Hall
 L.marker([-12, 18.9375]).addTo(map)
-    .bindPopup('Customizable popup! <br> Still works on mobile too!')
+    .bindPopup('Customizable popup!')
 
 //Add marker to Upper Archery
 L.marker([-9.6875, 8.49375]).addTo(map)
